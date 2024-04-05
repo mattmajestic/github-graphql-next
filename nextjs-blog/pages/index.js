@@ -55,14 +55,14 @@ export default function Home({ totalStars, topLanguages }) {
           />
         </Flex>
         <Box p={8} shadow="xl" borderWidth="1px" flex="1" borderRadius="lg">
-          <Heading fontSize="3xl">GitHub Data</Heading>
-          <Text fontSize="xl" mt={4}>Total Stars: {totalStars}</Text>
+          <Heading fontSize="3xl">GitHub GraphQL API</Heading>
+          <Text fontSize="2xl" mt={4}>Total Stars: {totalStars}</Text>
         </Box>
         <Box p={8} shadow="xl" borderWidth="1px" borderRadius="lg">
           <Heading fontSize="3xl">Top Languages</Heading>
           <List spacing={4} mt={4}>
             {topLanguages.map(([language, count]) => (
-              <ListItem key={language} fontSize="lg">
+              <ListItem key={language} fontSize="xl">
                 <Badge mr={2} colorScheme="green">{count}</Badge> {language}
               </ListItem>
             ))}
