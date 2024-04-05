@@ -1,0 +1,42 @@
+/* styles/Home.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.card {
+  max-width: 600px;
+  width: 100%;
+  margin: 20px;
+  padding: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.title {
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.listItem {
+  margin: 10px 0;
+}
+
+.link {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,28 @@
+
+/* styles/globals.css */
+:root {
+  /* Light theme colors */
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --accent-color: #0070f3;
+  --border-color: #dddddd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme colors */
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #9a6aff;
+    --border-color: #333333;
+  }
+}
+
+/* styles/globals.css */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
