@@ -1,7 +1,20 @@
 // pages/index.js
 import { gql } from '@apollo/client';
 import client from '../lib/apolloClient';
-import styles from '../styles/Home.module.css'; // Make sure you have this CSS module for basic styling
+import {
+  Box,
+  Text,
+  Heading,
+  List,
+  ListItem,
+  Container,
+  VStack,
+  Badge,
+  IconButton,
+  useColorMode,
+  Flex,
+} from '@chakra-ui/react';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 // GraphQL query to fetch repositories, including star count and primary language
 const GET_REPOSITORIES = gql`
@@ -25,19 +38,38 @@ const GET_REPOSITORIES = gql`
 `;
 
 export default function Home({ totalStars, topLanguages }) {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
-    <div className={styles.container}>
-      <div className={styles.card}>
-        <h1 className={styles.title}>GitHub Data</h1>
-        <p>Total Stars: {totalStars}</p>
-        <h2>Top Languages</h2>
-        <ul className={styles.list}>
-          {topLanguages.map(([language, count]) => (
-            <li key={language} className={styles.listItem}>{language}: {count} repositories</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Container maxW="container.xl" centerContent p={8}>
+      <VStack spacing={8} align="stretch">
+        {/* Center the toggle button */}
+        <Flex justify="center" width="full">
+          <IconButton
+            aria-label="Toggle dark mode"
+            icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            onClick={toggleColorMode}
+            size="lg" // Adjust the size here, lg for larger button
+            isRound={true} // Optional: makes the button round
+            fontSize="2xl" // Makes the icon larger
+          />
+        </Flex>
+        <Box p={8} shadow="xl" borderWidth="1px" flex="1" borderRadius="lg">
+          <Heading fontSize="3xl">GitHub Data</Heading>
+          <Text fontSize="xl" mt={4}>Total Stars: {totalStars}</Text>
+        </Box>
+        <Box p={8} shadow="xl" borderWidth="1px" borderRadius="lg">
+          <Heading fontSize="3xl">Top Languages</Heading>
+          <List spacing={4} mt={4}>
+            {topLanguages.map(([language, count]) => (
+              <ListItem key={language} fontSize="lg">
+                <Badge mr={2} colorScheme="green">{count}</Badge> {language}
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </VStack>
+    </Container>
   );
 }
 
