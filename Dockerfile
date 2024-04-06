@@ -5,6 +5,9 @@ FROM node:18-alpine
 # Create and change to the app directory.
 WORKDIR /usr/src/app
 
+ENV NODE_ENV=production
+ENV GH_PAT=$GH_PAT
+
 # Copy package.json, package-lock.json, and your Next.js app to the container
 COPY package*.json ./
 COPY . .

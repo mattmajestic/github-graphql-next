@@ -23,3 +23,5 @@ jobs:
           context: .
           push: true
           tags: ${{ github.repository }}:latest
+          build-args: |
+            GH_PAT=${{ secrets.GH_PAT }}
