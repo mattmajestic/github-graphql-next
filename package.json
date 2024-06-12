@@ -12,7 +12,6 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "framer-motion": "^11.0.24",
-    "geoip-lite": "^1.4.10",
     "graphql": "^16.8.1",
     "next": "latest",
     "pg": "^8.12.0",
